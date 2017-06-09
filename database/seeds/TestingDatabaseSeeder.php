@@ -11,6 +11,6 @@ class TestingDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        factory(App\Models\Establishment::class, 25)->create();
     }
 }
