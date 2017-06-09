@@ -8,3 +8,16 @@ actor_suffix: Tester
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+modules:
+    enabled:
+      - Laravel:
+          cleanup: true
+          run_database_migrations: true
+          run_database_seeder: true
+          database_seeder_class: true
+          environment_file: .env.testing
+          bootstrap: bootstrap/app.php
+          disable_exception_handling: true
+          disable_events: true
+          disable_model_events: false
+          vendor_dir: vendor
