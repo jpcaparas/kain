@@ -22,14 +22,6 @@ class EstablishmentModelTest extends \Codeception\Test\Unit
     {
     }
 
-    public function testCount()
-    {
-        $this->tester->wantTo('test if generated record count matches seed factory instructions');
-
-        $count = $this->tester->grabNumRecords($this->establishment);
-        $this->tester->assertEquals($count, TestingDatabaseSeeder::RECORD_COUNT);
-    }
-
     public function testCrud()
     {
         $this->tester->wantTo('test create, read, update, delete capabilities of an establishment');
