@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Establishment extends Model
@@ -18,4 +19,12 @@ class Establishment extends Model
         'city',
         'phone',
     ];
+
+    /**
+     * @return MorphOne
+     */
+    public function contact()
+    {
+        return $this->morphOne(Contact::class, 'contactable');
+    }
 }
