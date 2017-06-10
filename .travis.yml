@@ -19,5 +19,4 @@ before_install:
 script:
   - php artisan key:generate --env=testing
   - php -r "file_exists('.env.testing') || copy('.env.example', '.env.testing');"
-  - php vendor/bin/codecept build
   - php vendor/bin/codecept run --verbose --fail-fast --debug --no-interaction
