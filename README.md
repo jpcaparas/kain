@@ -1,5 +1,7 @@
 # Kain
 
+[![Build Status](https://travis-ci.org/jpcaparas/kain.svg?branch=master)](https://travis-ci.org/jpcaparas/kain)
+
 Kain - An online directory of Filipino eating establishments in New Zealand.
 
 This is a test-driven, API-driven application whose front-end is decoupled from its back-end.
