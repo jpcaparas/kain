@@ -10,7 +10,7 @@ extensions:
         - Codeception\Extension\RunFailed
 modules:
     enabled:
-      - Laravel:
+      - Laravel5:
           cleanup: true
           run_database_migrations: true
           run_database_seeder: true
