@@ -13,6 +13,13 @@ class TestingDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Establishment::class, self::RECORD_COUNT)->create();
+        factory(App\Models\Establishment::class, self::RECORD_COUNT)
+            ->create()
+            ->each(function ($e) {
+                /**
+                 * @var \Illuminate\Database\Eloquent\Model $e
+                 */
+                $e->contact()->save(factory(\App\Models\Contact::class)->make());
+            });
     }
 }
