@@ -1,0 +1,23 @@
+sudo: false
+
+language: php
+
+php:
+  - '7.0'
+  - '7.1'
+  - 'nightly'
+
+dist: trusty
+
+os: linux
+
+before_install:
+  - alias composer="php-n -d memory_limit=-1 $(which composer)"
+  - composer self-update --stable
+  - composer install --prefer-dist --no-interaction --no-suggest
+
+script:
+  - php artisan key:generate --env=testing
+  - php -r "file_exists('.env.testing') || copy('.env.example', '.env.testing');"
+  - php vendor/bin/codecept build
+  - php vendor/bin/codecept run --verbose --fail-fast --debug --no-interaction
