@@ -14,7 +14,7 @@ modules:
           cleanup: true
           run_database_migrations: true
           run_database_seeder: true
-          database_seeder_class: true
+          database_seeder_class: TestingDatabaseSeeder
           environment_file: .env.testing
           bootstrap: bootstrap/app.php
           disable_exception_handling: true
