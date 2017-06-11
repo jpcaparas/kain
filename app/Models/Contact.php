@@ -23,6 +23,11 @@ class Contact extends Model
         'phone_mobile',
     ];
 
+    protected $hidden = [
+        'contactable_id',
+        'contactable_type',
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
