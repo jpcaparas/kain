@@ -28,10 +28,10 @@ script:
 
 jobs:
   include:
-    env:
-      - secure: TFJk6mdo8Mx6scqfbUH0aC6x1J2nFi7X5g2u++R+AhRHcdqXhAijC7Lyz7XgMMHzG+mXuLeVR4VWB5F41e12g6Nwrm25nmlaeuXtqeYqzPvxE0hx6qqnub24ZIJRvOdR2GGYCrsgkVUjF28BxRiw7xkINCr3lYTvxiLkQZwN/ZjL1JF0l6tJ9hevakOZPxASx4RiTWsUoemotvDkV+Yt7oRn0pNQRGO0V7YSnIjGSaY+OzioVhKGe9Tv+EnrkGfKw1zHkjtEZfmKcZedBFgTLnhy7+OVNVIaL3MtPq9ozsyxDI8oeU5oU3TOTCwlJdbtsP6icD5bzw56ucZOnpHEnl2K8hIkN92/o6QpGjdcK2sFkb65RSaHXU9U2IIYti93kiH22hHMg0hMo/OWXssfJH5Up1aBpXYUY2J+DUprn5kAtIdYjn15KBvok7SDQ3ARJBAopS9R1/tize2rLmDgWOsmaSHkRZz0vbd1gnzWVzjVIclj2CiSBs/GWcJgtSO3spNGxpoKhBXnlnU0GSAXeemXl/pQ+9BL+6h3hl3xWJlfdLlq+y2mJgXfWDWYgZFYnQom3o5csfWKsK/5qdvFos/A8hAYKNv6jvuC+7ElxACq3OamLpDCvGChkKqP/eEO7Hfwfw1eB2hQSa8VOCb5af8/FQm+7Zb27UmZItIqnRA=
-    - stage: deploy
-      script: ./deploy.sh
+    - stage: deploy to forge
+      env:
+        - secure: TFJk6mdo8Mx6scqfbUH0aC6x1J2nFi7X5g2u++R+AhRHcdqXhAijC7Lyz7XgMMHzG+mXuLeVR4VWB5F41e12g6Nwrm25nmlaeuXtqeYqzPvxE0hx6qqnub24ZIJRvOdR2GGYCrsgkVUjF28BxRiw7xkINCr3lYTvxiLkQZwN/ZjL1JF0l6tJ9hevakOZPxASx4RiTWsUoemotvDkV+Yt7oRn0pNQRGO0V7YSnIjGSaY+OzioVhKGe9Tv+EnrkGfKw1zHkjtEZfmKcZedBFgTLnhy7+OVNVIaL3MtPq9ozsyxDI8oeU5oU3TOTCwlJdbtsP6icD5bzw56ucZOnpHEnl2K8hIkN92/o6QpGjdcK2sFkb65RSaHXU9U2IIYti93kiH22hHMg0hMo/OWXssfJH5Up1aBpXYUY2J+DUprn5kAtIdYjn15KBvok7SDQ3ARJBAopS9R1/tize2rLmDgWOsmaSHkRZz0vbd1gnzWVzjVIclj2CiSBs/GWcJgtSO3spNGxpoKhBXnlnU0GSAXeemXl/pQ+9BL+6h3hl3xWJlfdLlq+y2mJgXfWDWYgZFYnQom3o5csfWKsK/5qdvFos/A8hAYKNv6jvuC+7ElxACq3OamLpDCvGChkKqP/eEO7Hfwfw1eB2hQSa8VOCb5af8/FQm+7Zb27UmZItIqnRA=
+      script: "#!/bin/bash [[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_BRANCH == 'master' ]] && curl -X POST $FORGE_DEPLOYMENT_TRIGGER_URL"
 
 notifications:
   slack:
