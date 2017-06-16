@@ -21,7 +21,7 @@ script:
 - php vendor/bin/codecept run --verbose --fail-fast --debug --no-interaction
 
 after_success:
-  "[[ -z $TRAVIS_PULL_REQUEST_SLUG && $TRAVIS_BRANCH == \"master\" ]] && curl -X POST $FORGE_DEPLOYMENT_TRIGGER_URL"
+  "[[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_BRANCH == 'master' ]] && curl -X POST $FORGE_DEPLOYMENT_TRIGGER_URL"
 
 notifications:
   slack:
