@@ -20,3 +20,7 @@ script:
   - php artisan key:generate --env=testing
   - php -r "file_exists('.env.testing') || copy('.env.example', '.env.testing');"
   - php vendor/bin/codecept run --verbose --fail-fast --debug --no-interaction
+
+notifications:
+  slack:
+    secure: "gz0TCFryRQIJtHC8nx3B6AI+xtYxzTsMepJOacxzl+Q/uhWt5kquv80Geij8uUkCm4lKnMMfreg0g6f0+F2tvlz+/pR5oE462rEg9q03gVi7Eh6bICi2MKPUYWb7mvv832kZrD3od4uW+tl/N6vxmn0jNsr9MIGKvFD3aNqEvbHCHpmMvVSWnA21zkNkAxXN+ag0aos+5sNU2BaEq00dmEi2XvpaMWjvWXQOn30A1oZEcGNq+q2YtG/r1/DPLV3acxWswrnL/ZGF7YmiI31WHVPK4D0OP5oXNUgQHGhF/48nsA67NCmp7TV4aPjjMmqYSVcWq409Oic+Be1eOGPKWY4qjgE0t7JF4Nf7dRRNkLo9qeHrHe6eJsMB8rNQ8oO66ZnxQjqRlFjBAop6+Vu+zxGXvWmsHsJpI6OqHwOL1ypKaroUyFfdTxpkYoaxib4CxR2gxjBWSzCZqv1SRIsJrUI2pw9lR7YvGVCrqNmncMst8Ba3dXxYK+4PphuzklE9pmBi1BpRVNBc2g2n9aOlKkZ6cbpcVoonqXaE/v/0sJjuquFr6R8zOdKBdn7e/z0YGwmnv+0Mn6GTJYIyZhQVwLVxfuccNgb6+YO+ss+U/AGgpwJ02gslB+126AtSwOWCCAL+il5PLEtjgBpO19eEZxP6SGiws62c/R4KGK349XI="
