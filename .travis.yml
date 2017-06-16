@@ -18,6 +18,7 @@ before_install:
 - composer install --prefer-dist --no-interaction --no-suggest
 
 script:
+- chmod +x ./deploy.sh
 - php artisan key:generate --env=testing
 - php -r "file_exists('.env.testing') || copy('.env.example', '.env.testing');"
 - php vendor/bin/codecept run --verbose --fail-fast --debug --no-interaction
