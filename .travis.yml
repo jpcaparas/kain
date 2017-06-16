@@ -1,4 +1,4 @@
-sudo: required
+sudo: false
 
 language: php
 
@@ -15,6 +15,7 @@ git:
   submodules: false
 
 before_install:
+- chmod +x deploy.sh
 - php -v
 - php -m
 - alias composer="php-n -d memory_limit=-1 $(which composer)"
@@ -22,7 +23,6 @@ before_install:
 - composer install --prefer-dist --no-interaction --no-suggest
 
 script:
-- sudo chmod ugo+x ./deploy.sh
 - php artisan key:generate --env=testing
 - php -r "file_exists('.env.testing') || copy('.env.example', '.env.testing');"
 - php vendor/bin/codecept run --verbose --fail-fast --debug --no-interaction
