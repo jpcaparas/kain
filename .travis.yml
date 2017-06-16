@@ -22,8 +22,10 @@ script:
 - php -r "file_exists('.env.testing') || copy('.env.example', '.env.testing');"
 - php vendor/bin/codecept run --verbose --fail-fast --debug --no-interaction
 
-after_success:
-  "[[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_BRANCH == 'master' ]] && curl -X POST $FORGE_DEPLOYMENT_TRIGGER_URL"
+jobs:
+  include:
+    - stage: deploy
+      script: ./deploy.sh
 
 notifications:
   slack:
