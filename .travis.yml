@@ -14,7 +14,6 @@ git:
   submodules: false
 
 before_install:
-- chmod +x deploy.sh
 - php -v
 - php -m
 - alias composer="php-n -d memory_limit=-1 $(which composer)"
