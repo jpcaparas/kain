@@ -11,6 +11,8 @@ dist: trusty
 os: linux
 
 before_install:
+- php -v
+- php -m
 - alias composer="php-n -d memory_limit=-1 $(which composer)"
 - composer self-update --stable
 - composer install --prefer-dist --no-interaction --no-suggest
