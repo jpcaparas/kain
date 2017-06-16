@@ -1,4 +1,4 @@
-sudo: false
+sudo: required
 
 language: php
 
@@ -10,6 +10,10 @@ dist: trusty
 
 os: linux
 
+git:
+  depth: 1
+  submodules: false
+
 before_install:
 - php -v
 - php -m
@@ -18,7 +22,7 @@ before_install:
 - composer install --prefer-dist --no-interaction --no-suggest
 
 script:
-- chmod +x ./deploy.sh
+- sudo chmod ugo+x ./deploy.sh
 - php artisan key:generate --env=testing
 - php -r "file_exists('.env.testing') || copy('.env.example', '.env.testing');"
 - php vendor/bin/codecept run --verbose --fail-fast --debug --no-interaction
